@@ -7,7 +7,7 @@ export default function PublicationCard({ pub }: { pub: SanitizedPublication }) 
     <FlipCard
       className="min-h-[7rem] sm:min-h-[8rem] lg:min-h-[9rem] transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:z-20"
       front={
-        <div className="card bg-base-100 shadow-md card-sm h-full w-full p-6 flex flex-col">
+        <div className="card bg-base-100 shadow-md card-sm h-full w-full p-8 flex flex-col justify-between rounded-box">
           <h3 className="card-title text-lg flex items-center mb-2">
             <MdArticle className="mr-1.5" />
             {pub.title}
@@ -19,7 +19,7 @@ export default function PublicationCard({ pub }: { pub: SanitizedPublication }) 
         </div>
       }
       back={
-        <div className="card bg-base-100 shadow-md card-sm h-full w-full p-6 flex flex-col justify-center items-center text-center">
+       <div className="card bg-base-100 shadow-md card-sm h-full w-full p-8 flex flex-col justify-center items-center text-center rounded-box">
           <p className="text-base-content mb-4">{pub.authors}</p>
           <a
             href={pub.link}
