@@ -14,6 +14,7 @@ module.exports = {
         '[transform-style:preserve-3d]': { transformStyle: 'preserve-3d' },
         '[backface-visibility:hidden]': { backfaceVisibility: 'hidden' },
         '[perspective:1000px]': { perspective: '1000px' },
+         '.hover\\:z-20:hover': { zIndex: 20 },
       });
     },
   ],
