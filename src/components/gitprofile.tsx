@@ -30,7 +30,7 @@ import Footer from './footer';
 import PublicationCard from './publication-card';
 import { MdArticle } from 'react-icons/md';
 import { MdInsertLink } from 'react-icons/md';
-import SectionCard from './section-card/SectionCard';
+import SectionCard from './SectionCard';
 
 /**
  * Renders the GitProfile component.
