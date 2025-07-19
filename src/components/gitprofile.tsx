@@ -248,22 +248,35 @@ const GitProfile = ({ config }: { config: Config }) => {
                       googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
                     />
                   )}
-                  {sanitizedConfig.publications.length !== 0 && (
-                    <PublicationCard
-                      loading={loading}
-                      publications={sanitizedConfig.publications}
-                    />
-                  )}
-                  {sanitizedConfig.projects.external.projects.length !== 0 && (
-                    <ExternalProjectCard
-                      loading={loading}
-                      header={sanitizedConfig.projects.external.header}
-                      externalProjects={
-                        sanitizedConfig.projects.external.projects
-                      }
-                      googleAnalyticId={sanitizedConfig.googleAnalytics.id}
-                    />
-                  )}
+          {/* Publications */}
+{sanitizedConfig.publications.length !== 0 && (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {loading
+      ? Array.from({ length: sanitizedConfig.publications.length }).map((_, i) => (
+          <div key={i} className="h-full">
+            {/* ← insert your Publication skeleton here if desired */}
+          </div>
+        ))
+      : sanitizedConfig.publications.map((pub) => (
+          <PublicationCard key={pub.title} pub={pub} />
+        ))}
+  </div>
+)}
+
+{/* Working Papers */}
+{sanitizedConfig.projects.external.projects.length !== 0 && (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {loading
+      ? Array.from({ length: sanitizedConfig.projects.external.projects.length }).map((_, i) => (
+          <div key={i} className="h-full">
+            {/* ← insert your ExternalProject skeleton here if desired */}
+          </div>
+        ))
+      : sanitizedConfig.projects.external.projects.map((proj) => (
+          <ExternalProjectCard key={proj.title} proj={proj} />
+        ))}
+  </div>
+)}
                   {sanitizedConfig.blog.display && (
                     <BlogCard
                       loading={loading}
