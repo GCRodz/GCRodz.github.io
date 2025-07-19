@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{ts,tsx,js,jsx}'],
+  safelist: [
+    'h-36',
+    'h-40',
+    'h-44',
+  ],
   theme: {
     extend: {
       rotate: { 'y-180': '180deg' }, // enable rotate‑Y utility
