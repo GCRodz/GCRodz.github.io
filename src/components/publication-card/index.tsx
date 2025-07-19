@@ -1,6 +1,6 @@
 import { MdArticle } from 'react-icons/md';
 import FlipCard from '../FlipCard';
-import { SanitizedPublication } from '../interfaces/sanitized-config';
+import { SanitizedPublication } from '../../interfaces/sanitized-config';
 
 export default function PublicationCard({ pub }: { pub: SanitizedPublication }) {
   return (
