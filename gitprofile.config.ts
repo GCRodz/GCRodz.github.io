@@ -51,7 +51,7 @@ const CONFIG = {
       ],
     },
   },
-  seo: { title: 'Portfolio of Gabriel C. Rodríguez Alam', description: '', imageURL: '' },
+  seo: { title: 'Portfolio of Gabriel C. Rodríguez', description: '', imageURL: '' },
   social: {
     linkedin: 'Gabriel C. Rodríguez',
     researchGate: '',
