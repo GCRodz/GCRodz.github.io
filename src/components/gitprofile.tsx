@@ -289,5 +289,6 @@ const GitProfile = ({ config }: { config: Config }) => {
     )}
   </div>
 );
+};
 
 export default GitProfile;
