@@ -1,16 +1,8 @@
 import { MdArticle } from 'react-icons/md';
-import FlipCard from '../FlipCard';   // ← adjust path if folder layout differs
+import FlipCard from '../FlipCard';
+import { SanitizedPublication } from '../interfaces/sanitized-config';
 
-interface Publication {
-  title: string;
-  journalName?: string;
-  conferenceName?: string;
-  authors: string;
-  link: string;
-  description: string;
-}
-
-export default function PublicationCard({ pub }: { pub: Publication }) {
+export default function PublicationCard({ pub }: { pub: SanitizedPublication }) {
   return (
     <FlipCard
       className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
