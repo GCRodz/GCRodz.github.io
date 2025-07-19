@@ -9,7 +9,7 @@ export default function ExternalProjectCard({
 }) {
   return (
     <FlipCard
-      className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
+      className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:z-20"
       front={
         <div className="card bg-base-100 shadow-md card-sm h-full w-full">
           <figure className="px-6 pt-6">
