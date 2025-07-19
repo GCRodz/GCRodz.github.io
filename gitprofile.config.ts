@@ -44,6 +44,8 @@ const CONFIG = {
       manual: {
         // Properties for manually specifying projects
         projects: ['', ''], 
+  full_name?: string;     // “owner/repo” – REST v3
+  updated_at?: string;    // ISO timestamp – REST v3
       },
     },
   },
