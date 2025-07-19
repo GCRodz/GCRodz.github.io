@@ -1,6 +1,6 @@
 import { MdInsertLink } from 'react-icons/md';
 import FlipCard from '../FlipCard';
-import { SanitizedExternalProject } from '../interfaces/sanitized-config';
+import { SanitizedExternalProject } from '../../interfaces/sanitized-config';
 
 export default function ExternalProjectCard({
   proj,
