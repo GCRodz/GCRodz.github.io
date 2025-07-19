@@ -1,9 +1,8 @@
 import { ReactNode, useState } from 'react';
 
 /**
- * 3‑D flip card.
- * – Hover: optional pop handled by parent via className.
- * – Click: flips 180°; click again flips back.
+ * 3‑D flip card: fills its grid cell (h‑full w‑full)
+ * and flips 180° on click.
  */
 export default function FlipCard({
   front,
@@ -17,7 +16,6 @@ export default function FlipCard({
   const [flipped, setFlipped] = useState(false);
 
   return (
-    /* wrapper fills its grid slot */
     <div
       className={`relative cursor-pointer h-full w-full [perspective:1000px] ${className}`}
       onClick={() => setFlipped((f) => !f)}
