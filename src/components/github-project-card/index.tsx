@@ -58,7 +58,7 @@ const GithubProjectCard = ({
     githubProjects.map((item: GithubProject, idx: number) => (
       <FlipCard
         key={idx}
-          className="h-40  sm:h-48  transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:z-20"
+          className="min-h-[7rem] sm:min-h-[8rem] lg:min-h-[9rem] transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:z-20"
         /* ---------- FRONT ---------- */
         front={
           <div className="card shadow-md card-sm bg-base-100 h-full w-full p-8 flex flex-col justify-between">
