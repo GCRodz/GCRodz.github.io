@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ai';
 import { MdInsertLink } from 'react-icons/md';
 
-import FlipCard from '../FlipCard';           // adjust path if needed
+import FlipCard from '../FlipCard';                    // adjust path if needed
 import { ga, getLanguageColor, skeleton } from '../../utils';
 import { GithubProject } from '../../interfaces/github-project';
 
@@ -104,8 +104,9 @@ const GithubProjectCard = ({
               className="btn btn-primary btn-sm"
               onClick={(e) => {
                 e.stopPropagation();
-                googleAnalyticsId &&
+                if (googleAnalyticsId) {
                   ga.event('Click project', { project: item.name });
+                }
                 window.open(item.html_url, '_blank');
               }}
             >
