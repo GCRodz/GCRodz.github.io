@@ -28,6 +28,9 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
+import { MdArticle } from 'react-icons/md';
+import { MdInsertLink } from 'react-icons/md';
+import SectionCard from './section-card/SectionCard';
 
 /**
  * Renders the GitProfile component.
@@ -250,32 +253,42 @@ const GitProfile = ({ config }: { config: Config }) => {
                   )}
           {/* Publications */}
 {sanitizedConfig.publications.length !== 0 && (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {loading
-      ? Array.from({ length: sanitizedConfig.publications.length }).map((_, i) => (
-          <div key={i} className="h-full">
-            {/* ← insert your Publication skeleton here if desired */}
-          </div>
-        ))
-      : sanitizedConfig.publications.map((pub) => (
-          <PublicationCard key={pub.title} pub={pub} />
-        ))}
-  </div>
+  <SectionCard
+    icon={<MdArticle className="text-2xl" />}
+    header="Publications"
+    subHeader={`Showcasing ${sanitizedConfig.publications.length} publications`}
+  >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {loading
+        ? Array.from({ length: sanitizedConfig.publications.length }).map((_, i) => (
+            <div key={i} className="card bg-base-100 shadow-md h-48" />
+          ))
+        : sanitizedConfig.publications.map((pub) => (
+            <PublicationCard key={pub.title} pub={pub} />
+          ))}
+    </div>
+  </SectionCard>
 )}
 
 {/* Working Papers */}
 {sanitizedConfig.projects.external.projects.length !== 0 && (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {loading
-      ? Array.from({ length: sanitizedConfig.projects.external.projects.length }).map((_, i) => (
-          <div key={i} className="h-full">
-            {/* ← insert your ExternalProject skeleton here if desired */}
-          </div>
-        ))
-      : sanitizedConfig.projects.external.projects.map((proj) => (
-          <ExternalProjectCard key={proj.title} proj={proj} />
-        ))}
-  </div>
+  <SectionCard
+    icon={<MdInsertLink className="text-2xl" />}
+    header={sanitizedConfig.projects.external.header || 'Working Papers'}
+    subHeader={`Showcasing ${sanitizedConfig.projects.external.projects.length} projects`}
+  >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {loading
+        ? Array.from({ length: sanitizedConfig.projects.external.projects.length }).map(
+            (_, i) => (
+              <div key={i} className="card bg-base-100 shadow-md h-48" />
+            ),
+          )
+        : sanitizedConfig.projects.external.projects.map((proj) => (
+            <ExternalProjectCard key={proj.title} proj={proj} />
+          ))}
+    </div>
+  </SectionCard>
 )}
                   {sanitizedConfig.blog.display && (
                     <BlogCard
