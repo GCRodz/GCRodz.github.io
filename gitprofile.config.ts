@@ -164,60 +164,19 @@ const CONFIG = {
   // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: { id: '', snippetVersion: 6 },
   themeConfig: {
-    defaultTheme: 'lofi',
+  // lock the palette
+  defaultTheme: 'night',
 
-    // Hides the switch in the navbar
-    // Useful if you want to support a single color mode
-    disableSwitch: false,
+  // hide the theme selector in the UI
+  disableSwitch: true,
 
-    // Should use the prefers-color-scheme media-query,
-    // using user system preferences, instead of the hardcoded defaultTheme
-    respectPrefersColorScheme: false,
+  // ignore the visitor’s OS “dark/light‑mode” preference
+  respectPrefersColorScheme: false,
 
-    // Display the ring in Profile picture
-    displayAvatarRing: true,
-
-    // Available themes. To remove any theme, exclude from here.
-    themes: [
-      'light',
-      'dark',
-      'cupcake',
-      'bumblebee',
-      'emerald',
-      'corporate',
-      'synthwave',
-      'retro',
-      'cyberpunk',
-      'valentine',
-      'halloween',
-      'garden',
-      'forest',
-      'aqua',
-      'lofi',
-      'pastel',
-      'fantasy',
-      'wireframe',
-      'black',
-      'luxury',
-      'dracula',
-      'cmyk',
-      'autumn',
-      'business',
-      'acid',
-      'lemonade',
-      'night',
-      'coffee',
-      'winter',
-      'dim',
-      'nord',
-      'sunset',
-      'caramellatte',
-      'abyss',
-      'silk',
-      'procyon',
-    ],
-  },
-
+  // (optional) ship only one palette so nothing else can be chosen,
+  // even if someone re‑enables the switch later
+  themes: ['night'],
+},
   // Optional Footer. Supports plain text or HTML.
   footer: `Made with <a 
       class="text-primary" href="https://github.com/arifszn/gitprofile"
