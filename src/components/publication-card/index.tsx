@@ -5,7 +5,7 @@ import { SanitizedPublication } from '../../interfaces/sanitized-config';
 export default function PublicationCard({ pub }: { pub: SanitizedPublication }) {
   return (
     <FlipCard
-      className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
+      className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105 hover:z-20"
       front={
         <div className="card bg-base-100 shadow-md card-sm h-full w-full p-6 flex flex-col">
           <h3 className="card-title text-lg flex items-center mb-2">
