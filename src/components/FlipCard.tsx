@@ -1,8 +1,7 @@
 import { ReactNode, useState } from 'react';
 
 /**
- * Simple 3‑D flip card.
- * Click to flip; click again to flip back.
+ * 3‑D flip‑card: click to flip, click again to flip back.
  */
 export default function FlipCard({
   front,
