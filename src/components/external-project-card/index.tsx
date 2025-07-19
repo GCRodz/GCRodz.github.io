@@ -1,14 +1,12 @@
 import { MdInsertLink } from 'react-icons/md';
-import FlipCard from '../FlipCard';   // adjust path if needed
+import FlipCard from '../FlipCard';
+import { SanitizedExternalProject } from '../interfaces/sanitized-config';
 
-interface ExternalProject {
-  title: string;
-  description: string;
-  imageUrl: string;
-  link: string;
-}
-
-export default function ExternalProjectCard({ proj }: { proj: ExternalProject }) {
+export default function ExternalProjectCard({
+  proj,
+}: {
+  proj: SanitizedExternalProject;
+}) {
   return (
     <FlipCard
       className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
