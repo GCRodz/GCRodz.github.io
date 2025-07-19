@@ -6,7 +6,7 @@ import {
 } from 'react-icons/ai';
 import { MdInsertLink } from 'react-icons/md';
 
-import FlipCard from '../FlipCard'; // adjust if your path differs
+import FlipCard from '../FlipCard';           // adjust path if needed
 import { ga, getLanguageColor, skeleton } from '../../utils';
 import { GithubProject } from '../../interfaces/github-project';
 
@@ -61,7 +61,7 @@ const GithubProjectCard = ({
         className="transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
         /* ---------- FRONT ---------- */
         front={
-          <div className="card shadow-md card-sm bg-base-100 h-full p-8 flex flex-col justify-between">
+          <div className="card shadow-md card-sm bg-base-100 h-full w-full p-8 flex flex-col justify-between">
             <div>
               <div className="card-title text-lg tracking-wide flex items-center text-base-content opacity-60 truncate">
                 <MdInsertLink className="my-auto" />
@@ -93,7 +93,7 @@ const GithubProjectCard = ({
         }
         /* ---------- BACK ---------- */
         back={
-          <div className="card bg-base-100 shadow-md card-sm h-full p-8 flex flex-col justify-center items-center text-center">
+          <div className="card bg-base-100 shadow-md card-sm h-full w-full p-8 flex flex-col justify-center items-center text-center">
             <p className="text-base-content mb-4">
               {item.full_name}
               <br />
