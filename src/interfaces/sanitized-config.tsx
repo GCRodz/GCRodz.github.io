@@ -143,4 +143,3 @@ export interface SanitizedConfig {
   enablePWA: boolean;
 }
 
-}
