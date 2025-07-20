@@ -63,5 +63,5 @@ return (
     </div>
   );
 };
-
+ 
 export default SkillCard;
