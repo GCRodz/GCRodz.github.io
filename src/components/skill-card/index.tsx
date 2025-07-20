@@ -2,6 +2,9 @@ import { skeleton } from '../../utils';
 
 type Skill = { type: "language" | "program"; name: string };
 
+const badgeColor = (t: 'language' | 'program') =>
+  t === 'language' ? 'badge-info' : 'badge-success';
+
 const SkillCard = ({
   loading,
   skills,
