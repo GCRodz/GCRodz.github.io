@@ -7,12 +7,12 @@ const SkillCard = ({
   skills,
 }: {
   loading: boolean;
-  skills: string[];
+  skills: Skill[];      // ← Correct type here!
 }) => {
-// Let's make the seperate groups 
+  // Separate groups 
   const languages = skills.filter(skill => skill.type === "language");
   const programs = skills.filter(skill => skill.type === "program");
-  
+
   const renderSkeleton = () => {
     const array = [];
     for (let index = 0; index < 12; index++) {
@@ -25,7 +25,7 @@ const SkillCard = ({
     return array;
   };
 
-return (
+  return (
     <div className="card shadow-lg card-sm bg-base-100">
       <div className="card-body">
         <div className="mx-3">
@@ -63,5 +63,5 @@ return (
     </div>
   );
 };
- 
+
 export default SkillCard;
