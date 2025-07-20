@@ -86,7 +86,10 @@ export const getSanitizedConfig = (
       resume: {
         fileUrl: config?.resume?.fileUrl || '',
       },
-      skills: config?.skills || [],
+      skills:
+  (config?.skills || []).map((sk) =>
+    typeof sk === 'string' ? { type: 'program', name: sk } : sk,
+  ),
       experiences:
         config?.experiences?.filter(
           (experience) =>
