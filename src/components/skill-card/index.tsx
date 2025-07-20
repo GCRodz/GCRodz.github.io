@@ -29,13 +29,23 @@ const SkillCard = ({
     <div className="card shadow-lg card-sm bg-base-100">
       <div className="card-body">
         <div className="mx-3">
-          <h5 className="card-title">
-            {loading ? (
-              skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
-            ) : (
-              <span className="text-base-content opacity-70">Languages & Programs</span>
-            )}
-          </h5>
+          <h5 className="card-title flex flex-col items-center gap-1">
+  {loading ? (
+    skeleton({ widthCls: 'w-48', heightCls: 'h-8' })
+  ) : (
+    <>
+      <span className="text-base-content opacity-70">Languages &amp; Programs</span>
+      <span className="flex items-center gap-2">
+        <span className="px-2 py-0.5 rounded-full bg-blue-200 text-blue-800 text-xs font-semibold">
+          Languages
+        </span>
+        <span className="px-2 py-0.5 rounded-full bg-green-200 text-green-800 text-xs font-semibold">
+          Programs
+        </span>
+      </span>
+    </>
+  )}
+</h5>
         </div>
         <div className="p-3 flow-root">
           {loading ? (
