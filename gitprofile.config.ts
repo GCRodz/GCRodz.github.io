@@ -74,14 +74,13 @@ const CONFIG = {
       'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
-    'R',
-    'Bash Scripting',
-    'Linux',
-    'Git',
-    'FSL',
-    'CONN',
-    'FSL',
-  ],
+  { type: "language", name: "R" },
+  { type: "language", name: "Bash Scripting" },
+  { type: "language", name: "Linux" },
+  { type: "program", name: "Git" },
+  { type: "program", name: "FSL" },
+  { type: "program", name: "CONN" },
+],
   experiences: [
     {
       company: 'Company Name',
