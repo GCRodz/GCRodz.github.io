@@ -58,26 +58,29 @@ const SkillCard = ({
             </div>
           ) : (
             <>
-              <div className="flex flex-wrap justify-center gap-2 mb-2">
-                {languages.map((lang, idx) => (
-                  <span
-                    key={idx}
-                    className="badge badge-primary badge-sm"
-                  >
-                    {lang.name}
-                  </span>
-                ))}
-              </div>
-              <div className="flex flex-wrap justify-center gap-2">
-                {programs.map((prog, idx) => (
-                  <span
-                    key={idx}
-                    className="badge badge-primary badge-sm"
-                  >
-                    {prog.name}
-                  </span>
-                ))}
-              </div>
+              {/* Languages */}
+<div className="flex flex-wrap justify-center gap-2 mb-2">
+  {languages.map((lang, idx) => (
+    <span
+      key={idx}
+      className={`badge badge-sm ${badgeColor(lang.type)}`}
+    >
+      {lang.name}
+    </span>
+  ))}
+</div>
+
+{/* Programs */}
+<div className="flex flex-wrap justify-center gap-2">
+  {programs.map((prog, idx) => (
+    <span
+      key={idx}
+      className={`badge badge-sm ${badgeColor(prog.type)}`}
+    >
+      {prog.name}
+    </span>
+  ))}
+</div>
             </>
           )}
         </div>
