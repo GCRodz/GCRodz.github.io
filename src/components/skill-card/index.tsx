@@ -34,7 +34,6 @@ const SkillCard = ({
             ) : (
               <>
                 <span className="text-base-content opacity-70">
-                  Languages&nbsp;&amp;&nbsp;Programs
                 </span>
                 <span className="flex items-center gap-2">
                   <span className="px-2 py-0.5 rounded-full bg-blue-200 text-blue-800 text-xs font-semibold">
