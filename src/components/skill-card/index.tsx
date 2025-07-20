@@ -1,5 +1,7 @@
 import { skeleton } from '../../utils';
 
+type Skill = { type: "language" | "program"; name: string };
+
 const SkillCard = ({
   loading,
   skills,
@@ -7,6 +9,10 @@ const SkillCard = ({
   loading: boolean;
   skills: string[];
 }) => {
+// Let's make the seperate groups 
+  const languages = skills.filter(skill => skill.type === "language");
+  const programs = skills.filter(skill => skill.type === "program");
+  
   const renderSkeleton = () => {
     const array = [];
     for (let index = 0; index < 12; index++) {
@@ -16,11 +22,10 @@ const SkillCard = ({
         </div>,
       );
     }
-
     return array;
   };
 
-  return (
+return (
     <div className="card shadow-lg card-sm bg-base-100">
       <div className="card-body">
         <div className="mx-3">
@@ -33,15 +38,26 @@ const SkillCard = ({
           </h5>
         </div>
         <div className="p-3 flow-root">
-          <div className="-m-1 flex flex-wrap justify-center gap-2">
-            {loading
-              ? renderSkeleton()
-              : skills.map((skill, index) => (
-                  <div key={index} className="badge badge-primary badge-sm">
-                    {skill}
-                  </div>
+          {loading ? (
+            <div className="-m-1 flex flex-wrap justify-center gap-2">
+              {renderSkeleton()}
+            </div>
+          ) : (
+            <>
+              <div className="flex items-center gap-4 mb-2 flex-wrap justify-center">
+                <span className="px-4 py-1 rounded-full bg-blue-200 text-blue-800 font-bold">Languages</span>
+                {languages.map((lang, idx) => (
+                  <span key={idx} className="badge badge-primary badge-sm">{lang.name}</span>
                 ))}
-          </div>
+              </div>
+              <div className="flex items-center gap-4 flex-wrap justify-center">
+                <span className="px-4 py-1 rounded-full bg-green-200 text-green-800 font-bold">Programs</span>
+                {programs.map((prog, idx) => (
+                  <span key={idx} className="badge badge-primary badge-sm">{prog.name}</span>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
