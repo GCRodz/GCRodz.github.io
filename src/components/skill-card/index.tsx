@@ -34,7 +34,7 @@ const SkillCard = ({
     skeleton({ widthCls: 'w-48', heightCls: 'h-8' })
   ) : (
     <>
-      <span className="text-base-content opacity-70">Languages &amp; Programs</span>
+      <span className="text-base-content opacity-70"></span>
       <span className="flex items-center gap-2">
         <span className="px-2 py-0.5 rounded-full bg-blue-200 text-blue-800 text-xs font-semibold">
           Languages
