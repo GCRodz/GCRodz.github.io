@@ -215,11 +215,11 @@ const GitProfile = ({ config }: { config: Config }) => {
         />
         {!loading && (
           <span
-            className="absolute bottom-2 right-2 text-[11px] text-base-content/50
+            className="flip-hint absolute bottom-2 right-2 text-[11px] text-base-content/50
                        pointer-events-none transition-opacity duration-200
                        group-hover:opacity-0"
           >
-            Hover to Flip Card
+            Hover to Flip Card 
           </span>
         )}
       </div>
