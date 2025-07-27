@@ -108,7 +108,7 @@ const GitProfile = ({ config }: { config: Config }) => {
       setProfile({
         avatar: data.avatar_url,
         name: data.name || ' ',
-        Background: data.Background || '',
+        bio: data.bio || '',
         location: data.location || '',
         company: data.company || '',
       });
@@ -217,7 +217,7 @@ const GitProfile = ({ config }: { config: Config }) => {
         back={
           <div className="card bg-base-200 rounded-box p-4 shadow-md overflow-visible h-full">
             <p className="font-semibold mb-2">About me</p>
-            <p>{profile?.Background || 'No bio yet.'}</p>
+            <p>{profile?.bio || 'No bio yet.'}</p>
           </div>
         }
       />
