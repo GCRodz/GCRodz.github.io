@@ -1,7 +1,7 @@
 export interface Profile {
   avatar: string;
   name: string;
-  bio?: string;
+  Background?: string;
   location?: string;
   company?: string;
 }
