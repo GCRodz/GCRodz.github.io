@@ -1,31 +1,27 @@
-// FlipCard.tsx
 import type { ReactNode } from 'react';
+import './flipcard.css';
 
 type FlipCardProps = {
   front: ReactNode;
   back: ReactNode;
+  height?: number | string;   // e.g., 340 or '340px'
   className?: string;
-  minHeight?: number | string;
 };
 
 export default function FlipCard({
   front,
   back,
+  height = 340,
   className = '',
-  minHeight = '320px',
 }: FlipCardProps) {
   return (
     <div
-      className={`relative group w-full ${className} hover:z-50`}
-      style={{ perspective: '1000px', minHeight }}
+      className={`flip hover:flip-hover-top w-full ${className}`}
+      style={{ height: typeof height === 'number' ? `${height}px` : height }}
     >
-      <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-        <div className="absolute inset-0 [backface-visibility:hidden] overflow-visible">
-          {front}
-        </div>
-        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] overflow-visible">
-          {back}
-        </div>
+      <div className="flip-inner">
+        <div className="flip-face overflow-visible">{front}</div>
+        <div className="flip-face flip-back overflow-auto">{back}</div>
       </div>
     </div>
   );
