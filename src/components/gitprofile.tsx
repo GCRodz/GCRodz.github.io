@@ -227,7 +227,7 @@ const GitProfile = ({ config }: { config: Config }) => {
           rel="noreferrer"
           className="btn btn-outline btn-sm mt-6 opacity-70"
         >
-          Download Resume
+          Download CV
         </a>
       )}
     </div>
