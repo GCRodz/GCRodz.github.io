@@ -28,6 +28,7 @@ import ExternalProjectCard from './external-project-card';
 import BlogCard from './blog-card';
 import Footer from './footer';
 import PublicationCard from './publication-card';
+import FlipCard from './FlipCard';
 
 /**
  * Renders the GitProfile component.
@@ -200,12 +201,30 @@ const GitProfile = ({ config }: { config: Config }) => {
                     themeConfig={sanitizedConfig.themeConfig}
                   />
                 )}
-                <AvatarCard
-                  profile={profile}
-                  loading={loading}
-                  avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-                  resumeFileUrl={sanitizedConfig.resume.fileUrl}
-                />
+               <FlipCard
+                  front={
+                    <AvatarCard
+                    profile={profile}
+                    loading={loading}
+                    avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+                    resumeFileUrl={sanitizedConfig.resume.fileUrl}
+                  />
+                  }
+              back={
+                  <div className="card bg-base-200 h-full w-full p-4 rounded-box overflow-auto text-sm">
+                    {/* Put whatever you want on the back */}
+                     <p className="font-semibold mb-2">About me</p>
+                     <p>{profile?.bio || 'No bio yet.'}</p>
+                      <a
+                      className="link link-primary mt-3 inline-block"
+                      href={sanitizedConfig.resume.fileUrl}
+                      download
+                    >
+                  Download CV
+                    </a>
+                    </div>
+                    }
+                  />
                 <DetailsCard
                   profile={profile}
                   loading={loading}
