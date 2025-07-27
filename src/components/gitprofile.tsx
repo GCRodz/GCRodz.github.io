@@ -219,7 +219,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                        pointer-events-none transition-opacity duration-200
                        group-hover:opacity-0"
           >
-            Hover to Flip Card ->
+            Hover to Flip Card
           </span>
         )}
       </div>
