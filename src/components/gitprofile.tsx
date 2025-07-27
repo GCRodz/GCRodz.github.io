@@ -190,47 +190,46 @@ const GitProfile = ({ config }: { config: Config }) => {
       <>
         <div className={`p-4 lg:p-10 min-h-full ${BG_COLOR}`}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
-            {/* --- LEFT COLUMN --- */}
-            <div className="col-span-1">
-              <div className="grid grid-cols-1 gap-6">
-                {!sanitizedConfig.themeConfig.disableSwitch && (
-                  <ThemeChanger
-                    theme={theme}
-                    setTheme={setTheme}
-                    loading={loading}
-                    themeConfig={sanitizedConfig.themeConfig}
-                  />
-                )}
-               <FlipCard
-                  front={
-                    <AvatarCard
-                    profile={profile}
-                    loading={loading}
-                    avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-                    resumeFileUrl={sanitizedConfig.resume.fileUrl}
-                  />
-                  }
-              back={
-                  <div className="card bg-base-200 h-full w-full p-4 rounded-box overflow-auto text-sm">
-                    {/* Put whatever you want on the back */}
-                     <p className="font-semibold mb-2">About me</p>
-                     <p>{profile?.bio || 'No bio yet.'}</p>
-                      <a
-                      className="link link-primary mt-3 inline-block"
-                      href={sanitizedConfig.resume.fileUrl}
-                      download
-                    >
-                  Download CV
-                    </a>
-                    </div>
-                    }
-                  />
-                <DetailsCard
-                  profile={profile}
-                  loading={loading}
-                  github={sanitizedConfig.github}
-                  social={sanitizedConfig.social}
-                />
+          {/* --- LEFT COLUMN --- */}
+<div className="col-span-1">
+  <div className="grid grid-cols-1 gap-6">
+    {!sanitizedConfig.themeConfig.disableSwitch && (
+      <ThemeChanger
+        theme={theme}
+        setTheme={setTheme}
+        loading={loading}
+        themeConfig={sanitizedConfig.themeConfig}
+      />
+    )}
+
+    {/* ⬇️ Add the wrapper here */}
+    <div className="min-h-[340px] overflow-visible relative">
+      <FlipCard
+        // or: minHeight="340px"
+        front={
+          <AvatarCard
+            profile={profile}
+            loading={loading}
+            avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+            resumeFileUrl={sanitizedConfig.resume.fileUrl}
+          />
+        }
+        back={
+          <div className="card bg-base-200 rounded-box p-4 shadow-md overflow-visible h-full">
+            <p className="font-semibold mb-2">About me</p>
+            <p>{profile?.bio || 'No bio yet.'}</p>
+          </div>
+        }
+      />
+    </div>
+    {/* ⬆️ Wrapper ends */}
+
+    <DetailsCard
+      profile={profile}
+      loading={loading}
+      github={sanitizedConfig.github}
+      social={sanitizedConfig.social}
+    />
                 {sanitizedConfig.skills.length !== 0 && (
                   <SkillCard
                     loading={loading}
