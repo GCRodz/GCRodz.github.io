@@ -205,14 +205,26 @@ const GitProfile = ({ config }: { config: Config }) => {
     {/* ⬇️ Add the wrapper here */}
 <div className="min-h-[340px] overflow-visible">
 <FlipCard
+  className="group"         // so we can use group-hover utilities
   height={340}
   front={
-    <AvatarCard
-      profile={profile}
-      loading={loading}
-      avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-      /* ← omit resumeFileUrl so it doesn't render on front */
-    />
+    <div className="relative h-full">
+      <AvatarCard
+        profile={profile}
+        loading={loading}
+        avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+        // no resumeFileUrl here
+        className="h-full"
+      />
+      {/* hint text */}
+      {!loading && (
+        <span className="mt-2 block text-[11px] text-base-content/50 text-center
+                         pointer-events-none transition-opacity duration-200
+                         group-hover:opacity-0">
+          Hover to flip card
+        </span>
+      )}
+    </div>
   }
   back={
     <div className="card bg-base-200 rounded-box p-4 shadow-md h-full overflow-auto">
