@@ -203,26 +203,28 @@ const GitProfile = ({ config }: { config: Config }) => {
     )}
 
     {/* ⬇️ Add the wrapper here */}
-    <div className="min-h-[340px] overflow-visible relative">
-      <FlipCard
-        // or: minHeight="340px"
-        front={
-          <AvatarCard
-            profile={profile}
-            loading={loading}
-            avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-            resumeFileUrl={sanitizedConfig.resume.fileUrl}
-          />
-        }
-        back={
-          <div className="card bg-base-200 rounded-box p-4 shadow-md overflow-visible h-full">
-            <p className="font-semibold mb-2">About me</p>
-            <p>{profile?.bio || 'No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.No bio yet.'}</p>
-          </div>
-        }
+<div className="min-h-[340px] overflow-visible">
+  <FlipCard
+    height={340}
+    front={
+      <AvatarCard
+        profile={profile}
+        loading={loading}
+        avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+        resumeFileUrl={sanitizedConfig.resume.fileUrl}
+        className="h-full"
       />
-    </div>
-    {/* ⬆️ Wrapper ends */}
+    }
+    back={
+      <div className="card bg-base-200 rounded-box p-4 shadow-md h-full overflow-auto">
+        <h3 className="font-semibold mb-2">About me</h3>
+        <p className="whitespace-normal">
+          {profile?.bio || 'No bio yet.'}
+        </p>
+      </div>
+    }
+  />
+</div>
 
     <DetailsCard
       profile={profile}
