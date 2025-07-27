@@ -25,4 +25,20 @@
   .flip-hover-top {
     z-index: 50;
   }
+
+  /* ↻ hint */
+  .flip-hint {
+    pointer-events: none;
+    font-size: 11px;
+    color: rgb(156 163 175 / 0.7); /* tailwind-ish gray-400/70 */
+    transition: opacity .2s;
+  }
+  .flip-hint::after {
+    content: '↻';
+    margin-left: 4px;
+    transition: transform .2s;
+  }
+  .group:hover .flip-hint::after {
+    transform: rotate(90deg);
+  }
 }
