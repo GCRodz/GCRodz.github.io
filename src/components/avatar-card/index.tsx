@@ -1,5 +1,5 @@
 // src/components/avatar-card/index.tsx
-import type { ReactNode } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import { FALLBACK_IMAGE } from '../../constants';
 import { Profile } from '../../interfaces/profile';
 import { skeleton } from '../../utils';
@@ -10,8 +10,8 @@ type AvatarCardProps = {
   loading: boolean;
   avatarRing: boolean;
   resumeFileUrl?: string;
-  className?: string;   // extra classes from parent (FlipCard)
-  children?: ReactNode; // optional
+  className?: string;
+  children?: ReactNode;
 };
 
 export default function AvatarCard({
@@ -20,7 +20,7 @@ export default function AvatarCard({
   avatarRing,
   resumeFileUrl,
   className = '',
-}: AvatarCardProps): JSX.Element {
+}: AvatarCardProps): ReactElement {
   return (
     <div className={`card bg-base-100 shadow-xl overflow-visible h-full ${className}`}>
       <div className="grid place-items-center py-8 h-full">
