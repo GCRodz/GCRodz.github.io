@@ -218,7 +218,7 @@ const GitProfile = ({ config }: { config: Config }) => {
       />
       {/* hint text */}
       {!loading && (
-        <span className="absolute bottom-3 right-5 -translate-x-1/2
+        <span className="absolute bottom-3 right-7 -translate-x-1/2
                text-[11px] text-base-content/50 pointer-events-none
                transition-opacity duration-200 group-hover:opacity-0">
           Hover to flip card
