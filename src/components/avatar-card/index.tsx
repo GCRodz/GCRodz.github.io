@@ -1,5 +1,4 @@
-// src/components/avatar-card/index.tsx
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode, ReactElement } from 'react';
 import { FALLBACK_IMAGE } from '../../constants';
 import { Profile } from '../../interfaces/profile';
 import { skeleton } from '../../utils';
