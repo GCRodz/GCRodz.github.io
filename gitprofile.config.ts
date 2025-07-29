@@ -70,9 +70,8 @@ const CONFIG = {
     email: 'GJC5485@psu.edu.com',
   },
   resume: {
-    fileUrl:
-      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
-  },
+  fileUrl: '/cv.pdf',         
+},
   skills: [
   { type: "language", name: "R" },
   { type: "language", name: "Bash Scripting" },
