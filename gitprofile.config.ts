@@ -149,22 +149,15 @@ const CONFIG = {
   },
   // Track visitor interaction and behavior. https://www.hotjar.com
   hotjar: { id: '', snippetVersion: 6 },
-  themeConfig: {
-    defaultTheme: 'Abyss', //Procyon or Dark
+themeConfig: {
+  defaultTheme: 'abyss',        
+  disableSwitch: true,          
+  respectPrefersColorScheme: false,
+  displayAvatarRing: true,
 
-    // Hides the switch in the navbar
-    // Useful if you want to support a single color mode
-    disableSwitch: false,
-
-    // Should use the prefers-color-scheme media-query,
-    // using user system preferences, instead of the hardcoded defaultTheme
-    respectPrefersColorScheme: false,
-
-    // Display the ring in Profile picture
-    displayAvatarRing: true,
-
-    // Available themes. To remove any theme, exclude from here.
-  },
+ 
+  themes: ['abyss', 'dark', 'procyon'],   
+},
 
   // Optional Footer. Supports plain text or HTML.
   footer: `VIVA PUERTO RICO LIBRE 🇵🇷`,
