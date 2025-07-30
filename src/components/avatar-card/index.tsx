@@ -4,13 +4,29 @@ import { FALLBACK_IMAGE } from '../../constants';
 import { Profile } from '../../interfaces/profile';
 import { skeleton } from '../../utils';
 import LazyImage from '../lazy-image';
+import {
+  FaGithub,
+  FaXTwitter,
+  FaEnvelope,
+  FaGraduationCap,
+} from 'react-icons/fa6';
+import { PiFilePdfLight } from 'react-icons/pi';   // cv icon
+
+type Links = {
+  scholar?: string;
+  github?: string;
+  x?: string;
+  email?: string;   // mailto:
+  cv?: string;
+};
 
 type AvatarCardProps = {
   profile: Profile | null;
   loading: boolean;
   avatarRing: boolean;
   resumeFileUrl?: string;
-  subtitle?: string;          // ← new prop
+  subtitle?: string;
+  links?: Links;           // ← new
   className?: string;
   children?: ReactNode;
 };
@@ -21,6 +37,7 @@ export default function AvatarCard({
   avatarRing,
   resumeFileUrl,
   subtitle,
+  links,
   className = '',
 }: AvatarCardProps): ReactElement {
   return (
@@ -51,7 +68,7 @@ export default function AvatarCard({
           </div>
         )}
 
-        {/* Name, subtitle, bio */}
+        {/* Name / subtitle / bio */}
         <div className="text-center mx-auto px-8">
           <h5 className="font-bold text-2xl">
             {loading || !profile ? (
@@ -61,7 +78,6 @@ export default function AvatarCard({
             )}
           </h5>
 
-          {/* subtitle */}
           {subtitle && !loading && (
             <p className="mt-1 text-sm text-base-content/60">{subtitle}</p>
           )}
@@ -73,7 +89,38 @@ export default function AvatarCard({
           </div>
         </div>
 
-        {/* Resume button */}
+        {/* ---------- ICON ROW ---------- */}
+        {links && !loading && (
+          <div className="mt-5 flex items-center justify-center space-x-4 text-base-content/60">
+            {links.scholar && (
+              <a href={links.scholar} target="_blank" rel="noreferrer" aria-label="Google Scholar">
+                <FaGraduationCap className="w-[18px] h-[18px] hover:text-primary" />
+              </a>
+            )}
+            {links.github && (
+              <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+                <FaGithub className="w-[18px] h-[18px] hover:text-primary" />
+              </a>
+            )}
+            {links.x && (
+              <a href={links.x} target="_blank" rel="noreferrer" aria-label="X / Twitter">
+                <FaXTwitter className="w-[18px] h-[18px] hover:text-primary" />
+              </a>
+            )}
+            {links.email && (
+              <a href={`mailto:${links.email}`} aria-label="Email">
+                <FaEnvelope className="w-[18px] h-[18px] hover:text-primary" />
+              </a>
+            )}
+            {links.cv && (
+              <a href={links.cv} target="_blank" rel="noreferrer" aria-label="Download CV">
+                <PiFilePdfLight className="w-[18px] h-[18px] hover:text-primary" />
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* Resume button (optional) */}
         {resumeFileUrl &&
           (loading ? (
             <div className="mt-6">
