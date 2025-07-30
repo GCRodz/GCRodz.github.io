@@ -12,7 +12,6 @@ import {
 import '../assets/index.css';
 import { getInitialTheme, getSanitizedConfig, setupHotjar } from '../utils';
 import { SanitizedConfig } from '../interfaces/sanitized-config';
-import type { Config } from '../interfaces/config';         // <‑‑ add your actual path
 import ErrorPage from './error-page';
 import { DEFAULT_THEMES } from '../constants/default-themes';
 import ThemeChanger from './theme-changer';
