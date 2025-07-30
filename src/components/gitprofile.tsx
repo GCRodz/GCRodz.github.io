@@ -232,22 +232,6 @@ const GitProfile = ({ config }: { config: Config }) => {
         )}
       </div>
     }
-  back={
-    <div className="card bg-base-200 rounded-box p-4 shadow-md h-full overflow-auto">
-      <h3 className="font-semibold mb-2">About me</h3>
-      <p>{profile?.bio || 'No bio yet.'}</p>
-
-      {sanitizedConfig.resume.fileUrl && (
-        <a
-          href={sanitizedConfig.resume.fileUrl}
-          download
-          target="_blank"
-          rel="noreferrer"
-          className="btn btn-outline btn-sm mt-6 opacity-70"
-        >
-          Download CV
-        </a>
-      )}
     </div>
   }
 />
