@@ -180,13 +180,7 @@ const GitProfile = ({ config }: { config: Config }) => {
                             loading={loading}
                             avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
                             subtitle="Ph.D. Candidate at Penn State"
-                            className="h-full"
-                            links={{
-                              scholar: 'https://scholar.google.com/citations?user=XXXX',
-                              github: 'https://github.com/GCRodz',
-                              x: 'https://twitter.com/yourhandle',
-                              email: 'gjc5485@psu.edu',
-                              cv: '/cv.pdf',
+                            className="h-full",
                             }}
                           />
                           {!loading && (
