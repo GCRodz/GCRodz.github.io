@@ -201,40 +201,45 @@ const GitProfile = ({ config }: { config: Config }) => {
         themeConfig={sanitizedConfig.themeConfig}
       />
     )}
+{/* Avatar flip card */}
 <div className="min-h-[340px] overflow-visible">
-  <FlipCard className="group" height={340}
+  <FlipCard
+    className="group"
+    height={340}
+    /* ---------- FRONT ---------- */
     front={
       <div className="relative h-full">
-       <AvatarCard
-<AvatarCard
-  profile={profile}
-  loading={loading}
-  avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-  subtitle="Ph.D. Candidate at Penn State"
-  className="h-full"
-  links={{
-    scholar: 'https://scholar.google.com/citations?user=XXXX',
-    github: 'https://github.com/GCRodz',
-    x: 'https://twitter.com/yourhandle',
-    email: 'gjc5485@psu.edu',
-    cv: '/cv.pdf',            // hosted in /public
-  }}
-/>
+        <AvatarCard
+          profile={profile}
+          loading={loading}
+          avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+          subtitle="Ph.D. Candidate at Penn State"
+          className="h-full"
+          links={{
+            scholar: 'https://scholar.google.com/citations?user=XXXX',
+            github: 'https://github.com/GCRodz',
+            x: 'https://twitter.com/yourhandle',
+            email: 'gjc5485@psu.edu',
+            cv: '/cv.pdf',
+          }}
+        />
+
+        {/* hint */}
         {!loading && (
           <span
             className="flip-hint absolute bottom-2 right-2 text-[11px] text-base-content/50
                        pointer-events-none transition-opacity duration-200
                        group-hover:opacity-0"
           >
-            Hover to Flip Card 
+            Hover to Flip Card
           </span>
         )}
       </div>
     }
-    </div>
-  }
-/>
-</div>
+
+    /* ---------- BACK ---------- */
+    back={
+      <div className="card bg-base-200 rounded-box
 
     <DetailsCard
       profile={profile}
