@@ -175,14 +175,14 @@ const GitProfile = ({ config }: { config: Config }) => {
                       /* ---------- FRONT ---------- */
                       front={
                         <div className="relative h-full">
-                          <AvatarCard
-                            profile={profile}
-                            loading={loading}
-                            avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-                            subtitle="Ph.D. Candidate at Penn State"
-                            className="h-full"
-                            }}
-                          />
+                         <AvatarCard
+  profile={profile}
+  loading={loading}
+  avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+  subtitle="Ph.D. Candidate at Penn State"
+  className="h-full"
+  /* links={…}   ← delete this line */
+ />
                           {!loading && (
                             <span className="flip-hint absolute bottom-2 right-2 text-[11px] text-base-content/50 pointer-events-none transition-opacity duration-200 group-hover:opacity-0">
                               Hover to Flip Card
