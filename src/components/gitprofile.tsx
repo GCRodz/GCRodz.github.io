@@ -201,7 +201,7 @@ const GitProfile = ({ config }: { config: Config }) => {
         themeConfig={sanitizedConfig.themeConfig}
       />
     )}
-{/* Avatar flip card */}
+{/* Avatar flip card ------------------------------------------------ */}
 <div className="min-h-[340px] overflow-visible">
   <FlipCard
     className="group"
@@ -224,7 +224,7 @@ const GitProfile = ({ config }: { config: Config }) => {
           }}
         />
 
-        {/* hint */}
+        {/* hint ------------------------------------------------------ */}
         {!loading && (
           <span
             className="flip-hint absolute bottom-2 right-2 text-[11px] text-base-content/50
@@ -236,7 +236,6 @@ const GitProfile = ({ config }: { config: Config }) => {
         )}
       </div>
     }
-
     /* ---------- BACK ---------- */
     back={
       <div className="card bg-base-200 rounded-box p-4 h-full overflow-auto">
@@ -255,6 +254,7 @@ const GitProfile = ({ config }: { config: Config }) => {
     }
   />
 </div>
+
     <DetailsCard
       profile={profile}
       loading={loading}
