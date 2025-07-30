@@ -207,12 +207,13 @@ const GitProfile = ({ config }: { config: Config }) => {
   <FlipCard className="group" height={340}
     front={
       <div className="relative h-full">
-        <AvatarCard
-          profile={profile}
-          loading={loading}
-          avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
-          className="h-full"
-        />
+       <AvatarCard
+  profile={profile}
+  loading={loading}
+  avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+  className="h-full"
+  subtitle="Ph.D. Candidate at Penn State"   // ← your line here
+          />
         {!loading && (
           <span
             className="flip-hint absolute bottom-2 right-2 text-[11px] text-base-content/50
