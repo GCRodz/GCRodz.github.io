@@ -211,9 +211,16 @@ const GitProfile = ({ config }: { config: Config }) => {
   profile={profile}
   loading={loading}
   avatarRing={sanitizedConfig.themeConfig.displayAvatarRing}
+  subtitle="Ph.D. Candidate at Penn State"
   className="h-full"
-  subtitle="Ph.D. Candidate at Penn State"   // ← your line here
-          />
+  links={{
+    scholar: 'https://scholar.google.com/citations?user=XXXX',
+    github: 'https://github.com/GCRodz',
+    x: 'https://twitter.com/yourhandle',
+    email: 'gjc5485@psu.edu',
+    cv: '/cv.pdf',            // hosted in /public
+  }}
+/>
         {!loading && (
           <span
             className="flip-hint absolute bottom-2 right-2 text-[11px] text-base-content/50
