@@ -1,146 +1,89 @@
 /* ────────────────────────────────────────────────────────────────────────── */
-/*  DetailsCard – social/contact rows with a single icon row on top          */
+/*  DetailsCard – icon strip only                                            */
 /* ────────────────────────────────────────────────────────────────────────── */
-import { Fragment } from 'react';
-
 import { AiFillGithub } from 'react-icons/ai';
 import { RiMailFill } from 'react-icons/ri';
 import { SiGooglescholar } from 'react-icons/si';
-import { FaLinkedin, FaBuilding } from 'react-icons/fa';
-import { PiFilePdfLight } from 'react-icons/pi';
-import { MdLocationOn } from 'react-icons/md';
+import { FaLinkedin } from 'react-icons/fa';
 
-import { Profile } from '../../interfaces/profile';
-import {
-  SanitizedGithub,
-  SanitizedSocial,
-} from '../../interfaces/sanitized-config';
-import { skeleton } from '../../utils';
-
-/* ────────────── types ────────────── */
 type Links = {
   scholar?: string;
   github?: string;
-  linkedin?: string; // ← replaces X
+  linkedin?: string;
   email?: string;
   cv?: string;
 };
 
 type Props = {
-  profile: Profile | null;
-  loading: boolean;
-  social: SanitizedSocial;      // kept for future use
-  github: SanitizedGithub;
+  /* The extra props are still accepted so parent calls
+     don’t need to change, but we don’t use them anymore. */
+  profile?: unknown;
+  loading?: boolean;
+  social?: unknown;
+  github?: unknown;
   links?: Links;
 };
 
-/* ───────── helpers ───────── */
-const isCompanyMention = (c: string) => c.startsWith('@') && !c.includes(' ');
-const companyLink = (c: string) => `https://github.com/${c.substring(1)}`;
-
-/* ────────────────────────────────────────────────────────────────────────── */
-const DetailsCard = ({
-  profile,
-  loading,
-  social: _social, // eslint-disable-line @typescript-eslint/no-unused-vars
-  github,
-  links,
-}: Props) => {
-  /* mark as used so TS noUnusedLocals doesn’t complain */
-  void _social;
-
-  const renderSkeletonRows = () =>
-    Array.from({ length: 4 }).map((_, i) => (
-      <div key={i} className="flex items-start space-x-2">
-        {skeleton({ widthCls: 'w-4', heightCls: 'h-4' })}
-        {skeleton({ widthCls: 'w-24', heightCls: 'h-4' })}
-      </div>
-    ));
+export default function DetailsCard({ links }: Props) {
+  if (!links) return null; // nothing to render
 
   return (
     <div className="card bg-base-100 shadow-xl">
-      <div className="card-body">
-        {/* ─────────── ICON ROW ─────────── */}
-        {links && (
-          <div className="flex items-center justify-center gap-4 mb-4 text-xl text-base-content/70">
-            {links.scholar && (
-              <a href={links.scholar} target="_blank" rel="noreferrer" title="Scholar">
-                <SiGooglescholar className="w-5 h-5 hover:text-primary" />
-              </a>
-            )}
-            {links.github && (
-              <a href={links.github} target="_blank" rel="noreferrer" title="GitHub">
-                <AiFillGithub className="w-5 h-5 hover:text-primary" />
-              </a>
-            )}
-            {links.linkedin && (
-              <a href={links.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
-                <FaLinkedin className="w-5 h-5 hover:text-primary" />
-              </a>
-            )}
-            {links.email && (
-              <a href={`mailto:${links.email}`} title="Email">
-                <RiMailFill className="w-5 h-5 hover:text-primary" />
-              </a>
-            )}
-            {links.cv && (
-              <a href={links.cv} target="_blank" rel="noreferrer" title="CV / PDF">
-                <PiFilePdfLight className="w-5 h-5 hover:text-primary" />
-              </a>
-            )}
-          </div>
-        )}
+      <div className="card-body p-6">
+        <div className="flex items-center justify-center gap-4 text-xl text-base-content/70">
+          {links.scholar && (
+            <a
+              href={links.scholar}
+              target="_blank"
+              rel="noreferrer"
+              title="Scholar"
+            >
+              <SiGooglescholar className="w-5 h-5 hover:text-primary" />
+            </a>
+          )}
 
-        {/* ─────────── DETAIL LINES ─────────── */}
-        {loading || !profile ? (
-          renderSkeletonRows()
-        ) : (
-          <Fragment>
-            {profile.location && (
-              <div className="flex items-start">
-                <MdLocationOn className="mt-0.5" />
-                <span className="ml-2 font-medium">Based in:</span>
-                <span className="text-sm ml-3">{profile.location}</span>
-              </div>
-            )}
+          {links.github && (
+            <a
+              href={links.github}
+              target="_blank"
+              rel="noreferrer"
+              title="GitHub"
+            >
+              <AiFillGithub className="w-5 h-5 hover:text-primary" />
+            </a>
+          )}
 
-            {profile.company && (
-              <div className="flex items-start">
-                <FaBuilding className="mt-0.5" />
-                <span className="ml-2 font-medium">Organization:</span>
-                <span className="text-sm ml-3">
-                  {isCompanyMention(profile.company.trim()) ? (
-                    <a
-                      href={companyLink(profile.company.trim())}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {profile.company}
-                    </a>
-                  ) : (
-                    profile.company
-                  )}
-                </span>
-              </div>
-            )}
+          {links.linkedin && (
+            <a
+              href={links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              title="LinkedIn"
+            >
+              <FaLinkedin className="w-5 h-5 hover:text-primary" />
+            </a>
+          )}
 
-            <div className="flex items-start">
-              <AiFillGithub className="mt-0.5" />
-              <span className="ml-2 font-medium">GitHub:</span>
-              <a
-                href={`https://github.com/${github.username}`}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm ml-3"
-              >
-                {github.username}
-              </a>
-            </div>
-          </Fragment>
-        )}
+          {links.email && (
+            <a href={`mailto:${links.email}`} title="Email">
+              <RiMailFill className="w-5 h-5 hover:text-primary" />
+            </a>
+          )}
+
+          {/* CV text link */}
+          {links.cv && (
+            <a
+              href={links.cv}
+              target="_blank"
+              rel="noreferrer"
+              title="CV / PDF"
+              className="font-semibold tracking-wide hover:text-primary"
+            >
+              CV
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
-};
-
-export default DetailsCard;
+}
