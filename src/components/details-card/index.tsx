@@ -2,14 +2,13 @@
 /*  DetailsCard – social/contact rows with a single icon row on top          */
 /* ────────────────────────────────────────────────────────────────────────── */
 import { Fragment } from 'react';
+
 import { AiFillGithub } from 'react-icons/ai';
 import { RiMailFill } from 'react-icons/ri';
 import { SiGooglescholar } from 'react-icons/si';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin, FaBuilding } from 'react-icons/fa';
 import { PiFilePdfLight } from 'react-icons/pi';
-
 import { MdLocationOn } from 'react-icons/md';
-import { FaBuilding } from 'react-icons/fa';
 
 import { Profile } from '../../interfaces/profile';
 import {
@@ -22,7 +21,7 @@ import { skeleton } from '../../utils';
 type Links = {
   scholar?: string;
   github?: string;
-  linkedin?: string;   // ← replaced x
+  linkedin?: string; // ← replaces X
   email?: string;
   cv?: string;
 };
@@ -30,12 +29,12 @@ type Links = {
 type Props = {
   profile: Profile | null;
   loading: boolean;
-  social: SanitizedSocial; // still kept for future use
+  social: SanitizedSocial;      // kept for future use
   github: SanitizedGithub;
   links?: Links;
 };
 
-/* ───────── helpers you already had ───────── */
+/* ───────── helpers ───────── */
 const isCompanyMention = (c: string) => c.startsWith('@') && !c.includes(' ');
 const companyLink = (c: string) => `https://github.com/${c.substring(1)}`;
 
@@ -43,10 +42,13 @@ const companyLink = (c: string) => `https://github.com/${c.substring(1)}`;
 const DetailsCard = ({
   profile,
   loading,
-  social: _social, // underscore silences unused-prop warning
+  social: _social, // eslint-disable-line @typescript-eslint/no-unused-vars
   github,
   links,
 }: Props) => {
+  /* mark as used so TS noUnusedLocals doesn’t complain */
+  void _social;
+
   const renderSkeletonRows = () =>
     Array.from({ length: 4 }).map((_, i) => (
       <div key={i} className="flex items-start space-x-2">
@@ -72,12 +74,7 @@ const DetailsCard = ({
               </a>
             )}
             {links.linkedin && (
-              <a
-                href={links.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                title="LinkedIn"
-              >
+              <a href={links.linkedin} target="_blank" rel="noreferrer" title="LinkedIn">
                 <FaLinkedin className="w-5 h-5 hover:text-primary" />
               </a>
             )}
