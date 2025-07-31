@@ -207,7 +207,7 @@ const GitProfile = ({ config }: { config: Config }) => {
   links={{
     scholar : 'https://scholar.google.com/citations?user=WPUMZVYAAAAJ&hl=en',
     github  : `https://github.com/${sanitizedConfig.github.username}`,
-    linkedin: 'www.linkedin.com/in/gc-rodz/',
+    linkedin: 'https://www.linkedin.com/in/gc-rodz',
     email   : 'gjc5485@psu.edu',
     cv      : '/cv.pdf',
   }}
