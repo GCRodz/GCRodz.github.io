@@ -4,7 +4,8 @@
 import { Fragment } from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { RiMailFill } from 'react-icons/ri';
-import { SiX, SiGooglescholar } from 'react-icons/si';   // ← fixed import
+import { SiGooglescholar } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa';
 import { PiFilePdfLight } from 'react-icons/pi';
 
 import { MdLocationOn } from 'react-icons/md';
@@ -21,7 +22,7 @@ import { skeleton } from '../../utils';
 type Links = {
   scholar?: string;
   github?: string;
-  x?: string;
+  linkedin?: string;   // ← replaced x
   email?: string;
   cv?: string;
 };
@@ -29,7 +30,7 @@ type Links = {
 type Props = {
   profile: Profile | null;
   loading: boolean;
-  social: SanitizedSocial;   // kept in the type for future use
+  social: SanitizedSocial; // still kept for future use
   github: SanitizedGithub;
   links?: Links;
 };
@@ -42,7 +43,7 @@ const companyLink = (c: string) => `https://github.com/${c.substring(1)}`;
 const DetailsCard = ({
   profile,
   loading,
-  social: _social,          // ← underscore silences unused-prop error
+  social: _social, // underscore silences unused-prop warning
   github,
   links,
 }: Props) => {
@@ -61,28 +62,23 @@ const DetailsCard = ({
         {links && (
           <div className="flex items-center justify-center gap-4 mb-4 text-xl text-base-content/70">
             {links.scholar && (
-              <a
-                href={links.scholar}
-                target="_blank"
-                rel="noreferrer"
-                title="Scholar"
-              >
+              <a href={links.scholar} target="_blank" rel="noreferrer" title="Scholar">
                 <SiGooglescholar className="w-5 h-5 hover:text-primary" />
               </a>
             )}
             {links.github && (
-              <a
-                href={links.github}
-                target="_blank"
-                rel="noreferrer"
-                title="GitHub"
-              >
+              <a href={links.github} target="_blank" rel="noreferrer" title="GitHub">
                 <AiFillGithub className="w-5 h-5 hover:text-primary" />
               </a>
             )}
-            {links.x && (
-              <a href={links.x} target="_blank" rel="noreferrer" title="X">
-                <SiX className="w-5 h-5 hover:text-primary" />
+            {links.linkedin && (
+              <a
+                href={links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                title="LinkedIn"
+              >
+                <FaLinkedin className="w-5 h-5 hover:text-primary" />
               </a>
             )}
             {links.email && (
@@ -91,19 +87,14 @@ const DetailsCard = ({
               </a>
             )}
             {links.cv && (
-              <a
-                href={links.cv}
-                target="_blank"
-                rel="noreferrer"
-                title="CV / PDF"
-              >
+              <a href={links.cv} target="_blank" rel="noreferrer" title="CV / PDF">
                 <PiFilePdfLight className="w-5 h-5 hover:text-primary" />
               </a>
             )}
           </div>
         )}
 
-        {/* ─────────── EXISTING DETAIL LINES ─────────── */}
+        {/* ─────────── DETAIL LINES ─────────── */}
         {loading || !profile ? (
           renderSkeletonRows()
         ) : (
