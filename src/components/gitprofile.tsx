@@ -194,14 +194,6 @@ const GitProfile = ({ config }: { config: Config }) => {
                         <div className="card bg-base-200 rounded-box p-4 h-full overflow-auto">
                           <h3 className="font-semibold mb-2">About me</h3>
                           <p>{profile?.bio || 'No bio yet.'}</p>
-                          <a
-                            href="/cv.pdf"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="btn btn-outline btn-sm mt-4 w-full"
-                          >
-                            Download CV
-                          </a>
                         </div>
                       }
                     />
