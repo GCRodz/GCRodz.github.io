@@ -208,11 +208,18 @@ const GitProfile = ({ config }: { config: Config }) => {
                   </div>
 
                   <DetailsCard
-                    profile={profile}
-                    loading={loading}
-                    github={sanitizedConfig.github}
-                    social={sanitizedConfig.social}
-                  />
+  profile={profile}
+  loading={loading}
+  github={sanitizedConfig.github}
+  social={sanitizedConfig.social}
+  links={{
+    scholar : 'https://scholar.google.com/citations?user=WPUMZVYAAAAJ&hl=en',
+    github  : `https://github.com/${sanitizedConfig.github.username}`,
+    linkedin: 'www.linkedin.com/in/gc-rodz',
+    email   : 'gjc5485@psu.edu',
+    cv      : '/cv.pdf',
+  }}
+/>
                   {sanitizedConfig.skills.length > 0 && (
                     <SkillCard loading={loading} skills={sanitizedConfig.skills} />
                   )}
