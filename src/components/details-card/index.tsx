@@ -4,7 +4,7 @@
 import { Fragment } from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { RiMailFill } from 'react-icons/ri';
-import { SiX, SiGoogleScholar } from 'react-icons/si';
+import { SiX, SiGooglescholar } from 'react-icons/si';   // ← fixed import
 import { PiFilePdfLight } from 'react-icons/pi';
 
 import { MdLocationOn } from 'react-icons/md';
@@ -29,7 +29,7 @@ type Links = {
 type Props = {
   profile: Profile | null;
   loading: boolean;
-  social: SanitizedSocial;
+  social: SanitizedSocial;   // kept in the type for future use
   github: SanitizedGithub;
   links?: Links;
 };
@@ -38,13 +38,16 @@ type Props = {
 const isCompanyMention = (c: string) => c.startsWith('@') && !c.includes(' ');
 const companyLink = (c: string) => `https://github.com/${c.substring(1)}`;
 
-/* skeleton row & organization row helpers stay the same … */
-
 /* ────────────────────────────────────────────────────────────────────────── */
-const DetailsCard = ({ profile, loading, social, github, links }: Props) => {
+const DetailsCard = ({
+  profile,
+  loading,
+  social: _social,          // ← underscore silences unused-prop error
+  github,
+  links,
+}: Props) => {
   const renderSkeletonRows = () =>
     Array.from({ length: 4 }).map((_, i) => (
-      /* existing skeleton implementation */
       <div key={i} className="flex items-start space-x-2">
         {skeleton({ widthCls: 'w-4', heightCls: 'h-4' })}
         {skeleton({ widthCls: 'w-24', heightCls: 'h-4' })}
@@ -58,12 +61,22 @@ const DetailsCard = ({ profile, loading, social, github, links }: Props) => {
         {links && (
           <div className="flex items-center justify-center gap-4 mb-4 text-xl text-base-content/70">
             {links.scholar && (
-              <a href={links.scholar} target="_blank" rel="noreferrer" title="Scholar">
-                <SiGoogleScholar className="w-5 h-5 hover:text-primary" />
+              <a
+                href={links.scholar}
+                target="_blank"
+                rel="noreferrer"
+                title="Scholar"
+              >
+                <SiGooglescholar className="w-5 h-5 hover:text-primary" />
               </a>
             )}
             {links.github && (
-              <a href={links.github} target="_blank" rel="noreferrer" title="GitHub">
+              <a
+                href={links.github}
+                target="_blank"
+                rel="noreferrer"
+                title="GitHub"
+              >
                 <AiFillGithub className="w-5 h-5 hover:text-primary" />
               </a>
             )}
@@ -78,14 +91,19 @@ const DetailsCard = ({ profile, loading, social, github, links }: Props) => {
               </a>
             )}
             {links.cv && (
-              <a href={links.cv} target="_blank" rel="noreferrer" title="CV / PDF">
+              <a
+                href={links.cv}
+                target="_blank"
+                rel="noreferrer"
+                title="CV / PDF"
+              >
                 <PiFilePdfLight className="w-5 h-5 hover:text-primary" />
               </a>
             )}
           </div>
         )}
 
-        {/* ─────────── EXISTING DETAIL LINES (shortened example) ─────────── */}
+        {/* ─────────── EXISTING DETAIL LINES ─────────── */}
         {loading || !profile ? (
           renderSkeletonRows()
         ) : (
@@ -130,7 +148,6 @@ const DetailsCard = ({ profile, loading, social, github, links }: Props) => {
                 {github.username}
               </a>
             </div>
-            {/* …keep or add other rows as needed */}
           </Fragment>
         )}
       </div>
